@@ -1,0 +1,160 @@
+/* ========== Large Screen Styles ========== */
+@media screen and (min-width: 768px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+
+  #menu {
+    display: none;
+  }
+
+  /* Horizontal nav bar */
+  nav ul.navigation {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    background-color: transparent;
+  }
+
+  .navigation {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: flex-end;
+    background: none;
+    width: auto;
+  }
+
+  .navigation li {
+    border: none;
+  }
+
+  .navigation li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+  }
+
+  .navigation li a:hover,
+  .navigation li a.active {
+    background-color: #555;
+  }
+
+  main {
+    padding: 2rem;
+  }
+
+  h1 {
+    border-bottom: 3px solid #333;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  /* About + Photo side-by-side */
+  .about-photo-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+  }
+
+  .about,
+  .photo {
+    border: 1px solid #ccc;
+    background-color: #eaeaea;
+  }
+
+  .about h2,
+  .photo h2,
+  .courses h2 {
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem;
+    margin: 0;
+    text-align: center;
+  }
+
+  .photo img {
+    width: 100%;
+    max-width: 250px;
+    display: block;
+    margin: 1rem auto;
+  }
+
+  .courses {
+    margin-top: 2rem;
+    border: 1px solid #ccc;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .buttons button {
+    padding: 0.5rem 1.5rem;
+    border: 1px solid #333;
+    background-color: #f4f4f4;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .buttons button:hover {
+    background-color: #ddd;
+  }
+
+  #courseContainer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .course {
+    border: 1px solid #333;
+    padding: 1rem;
+    width: 120px;
+    text-align: center;
+    background-color: #fff;
+  }
+
+  .course.completed {
+    background-color: #cdeac0;
+  }
+
+  #totalCredits {
+    text-align: center;
+    padding: 1rem;
+    font-weight: bold;
+  }
+
+  footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  footer .social {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+
+  footer a:hover {
+    color: #ccc;
+  }
+}

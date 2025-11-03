@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="WDD 231: Web Frontend Development I Home Page" />
+  <meta name="author" content="Student Name" />
+  <title>WDD 231 | Course Home</title>
+  <link rel="stylesheet" href="styles/normalize.css" />
+  <link rel="stylesheet" href="styles/small.css" />
+  <link rel="stylesheet" href="styles/large.css" />
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/date.js" defer></script>
+  <script src="scripts/course.js" defer></script>
+</head>
+<body>
+  <header>
+  <img src="images/logo.webp" alt="Logo">
+  <button id="menu" aria-label="Menu">&#9776;</button>
+  <nav>
+    <ul class="navigation">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+ <main>
+  <h1>Home</h1>
+
+  <div class="about-photo-wrapper">
+    <section class="about">
+      <h2>About Me</h2>
+      <p>Hello! My name is Alex King, and I’m an aspiring web developer passionate about creating clean, responsive, and user-friendly websites. I enjoy learning new technologies and applying modern design principles to solve real-world problems. Currently, I’m studying Web and Front-End Development, where I’m gaining hands-on experience with HTML, CSS, JavaScript, and responsive design. My goal is to build creative and accessible web experiences that make a positive impact.</p>
+    </section>
+
+    <section class="photo">
+      <h2>Student Photo</h2>
+      <img src="images/passportPhoto.jpg" alt="Student Photo">
+    </section>
+  </div>
+
+  <section class="courses">
+    <h2>Web Certificate Courses</h2>
+    <div class="buttons">
+      <button id="all">All</button>
+      <button id="cse">CSE</button>
+      <button id="wdd">WDD</button>
+    </div>
+    <div id="courseContainer"></div>
+    <p id="totalCredits"></p>
+  </section>
+</main>
+
+
+  <footer>
+    <div class="social">
+      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      <a href="https://github.com" target="_blank">GitHub</a>
+    </div>
+    <p>
+      &copy; <span id="currentyear"></span> Student Name • Accra, Ghana.
+    </p>
+    <p id="lastModified"></p>
+  </footer>
+</body>
+</html>
