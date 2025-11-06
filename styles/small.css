@@ -1,182 +1,149 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
+/* Body */
 body {
-  font-family: 'Nunito', sans-serif;
-  margin: 0;
-  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
 }
 
-/* Header Layout */
+/* Header */
 header {
+  background-color: #333;
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #222;
-  color: white;
   padding: 1rem;
 }
 
-/* Logo */
 header img {
-  width: 40px;
-  height: auto;
+  height: 50px;
 }
 
-/* Hamburger Menu */
-#menu {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-  display: block; /* visible on small screens */
+header h1 {
+  font-size: 1.5rem;
 }
 
-/* Hide nav by default on mobile */
+/* Navigation */
 .navigation {
-  display: none;
-  flex-direction: column;
-  background-color: #333;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-
-/* Show nav when JS toggles 'open' class */
-.navigation.open {
   display: flex;
+  flex-direction: column;
+  background-color: #444;
+  width: 100%;
+  text-align: center;
 }
 
 .navigation li {
   list-style: none;
-  border-top: 1px solid #444;
 }
 
 .navigation li a {
   display: block;
   padding: 1rem;
-  text-align: center;
-  text-decoration: none;
   color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease; /* smooth hover transition */
 }
 
+/* ✅ Consolidated hover and active styles */
 .navigation li a:hover,
 .navigation li a.active {
   background-color: #555;
+  color: #fff;
+}
+
+/* Hamburger icon (small screens) */
+#menuButton {
+  display: block;
+  font-size: 1.8rem;
+  cursor: pointer;
+  background: none;
+  border: none;
   color: white;
 }
 
-.navigation li a {
-  transition: background-color 0.3s ease;
+/* Hide navigation by default on small screens */
+.navigation {
+  display: none;
 }
 
+/* Show navigation when open class is toggled by JS */
+.navigation.open {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content */
 main {
   padding: 1rem;
 }
 
-h1 {
-  margin-top: 1rem;
+section {
+  margin-bottom: 1.5rem;
+  background-color: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.about,
-.photo,
-.courses {
-  margin-bottom: 2rem;
-  border: 1px solid #ccc;
-  background-color: #eaeaea;
-}
-
-.about h2,
-.photo h2,
-.courses h2 {
+/* Footer */
+footer {
   background-color: #333;
   color: white;
-  padding: 0.5rem;
   text-align: center;
-  margin: 0;
-}
-
-.about p {
   padding: 1rem;
-}
-
-.photo img {
-  display: block;
-  width: 90%;
-  max-width: 300px;
-  margin: 1rem auto;
-  border: 1px solid #aaa;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  padding: 1rem;
-}
-
-.buttons button {
-  border: 1px solid #333;
-  background: #f4f4f4;
-  padding: 0.5rem 1rem;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.buttons button:hover {
-  background-color: #ddd;
-}
-
-#courseContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 0.5rem;
-  padding-bottom: 1rem;
 }
 
-.course {
-  border: 1px solid #333;
-  background-color: #fff;
-  width: 80%;
-  text-align: center;
-  padding: 0.5rem;
-}
-
-.course.completed {
-  background-color: #cdeac0;
-}
-
-#totalCredits {
-  text-align: center;
-  padding: 1rem;
-  font-weight: bold;
-}
-
-footer {
-  background-color: #222;
+/* Social links */
+footer .social a {
   color: white;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-}
-
-footer .social {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-footer a {
-  color: white;
+  margin: 0 0.5rem;
   text-decoration: none;
-  font-size: 1.5rem;
 }
 
-footer a:hover {
-  color: #ccc;
+footer .social a:hover {
+  color: #00aced;
+}
+
+/* Media Queries */
+@media screen and (min-width: 640px) {
+  /* Larger view navigation */
+  #menuButton {
+    display: none;
+  }
+
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #333;
+  }
+
+  .navigation li {
+    margin: 0;
+  }
+
+  .navigation li a {
+    padding: 1rem 2rem;
+  }
+
+  main {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
