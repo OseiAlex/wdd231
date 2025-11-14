@@ -1,0 +1,120 @@
+:root {
+    --primary: #003366;
+    --secondary: #0066aa;
+    --light: #ffffff;
+    --dark: #222;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    color: var(--dark);
+}
+
+/* HEADER */
+header {
+    background: var(--primary);
+    color: var(--light);
+    padding: 1rem;
+    text-align: center;
+}
+
+nav {
+    position: relative;
+}
+
+#menu-btn {
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Cpath stroke='white' stroke-width='4' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    background-size: cover;
+    display: none;
+}
+
+#nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    padding: 0;
+}
+
+#nav-menu a {
+    color: var(--light);
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+#nav-menu .active {
+    border-bottom: 2px solid var(--secondary);
+}
+
+/* MOBILE NAV */
+@media (max-width: 700px) {
+    #menu-btn { display: block; }
+
+    #nav-menu {
+        display: none;
+        flex-direction: column;
+        background: var(--primary);
+        padding: 1rem;
+    }
+
+    #nav-menu.show {
+        display: flex;
+    }
+}
+
+/* VIEW TOGGLE */
+.view-buttons {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.view-buttons button {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+/* DIRECTORY */
+#directory.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+#directory.list {
+    display: block;
+}
+
+.card, .list-item {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    background: var(--light);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+}
+
+.list-item:nth-child(even) {
+    background: #f6f6f6;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: var(--secondary);
+    color: var(--light);
+}

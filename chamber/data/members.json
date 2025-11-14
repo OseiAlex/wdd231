@@ -1,0 +1,58 @@
+[
+    {
+        "name": "BrightTech Solutions",
+        "address": "123 Main Street",
+        "phone": "555-123-4567",
+        "website": "https://brighttech.com",
+        "image": "placeholder1.png",
+        "membership": 3
+    },
+    {
+        "name": "GreenLeaf Farms",
+        "address": "45 Meadow Lane",
+        "phone": "555-222-3333",
+        "website": "https://greenfarm.org",
+        "image": "placeholder2.png",
+        "membership": 2
+    },
+    {
+        "name": "Sunset Realty",
+        "address": "890 Westview Ave",
+        "phone": "555-444-1111",
+        "website": "https://sunsetrealty.com",
+        "image": "placeholder3.png",
+        "membership": 1
+    },
+    {
+        "name": "Riverstone Bank",
+        "address": "67 River Road",
+        "phone": "555-555-5555",
+        "website": "https://riverstonebank.com",
+        "image": "placeholder4.png",
+        "membership": 3
+    },
+    {
+        "name": "Peak Fitness Center",
+        "address": "200 Mountain Dr",
+        "phone": "555-777-8888",
+        "website": "https://peakfitness.com",
+        "image": "placeholder5.png",
+        "membership": 2
+    },
+    {
+        "name": "Crystal Cleaners",
+        "address": "15 Maple Street",
+        "phone": "555-666-1212",
+        "website": "https://crystalcleaners.com",
+        "image": "placeholder6.png",
+        "membership": 1
+    },
+    {
+        "name": "Happy Day Cafe",
+        "address": "89 Coffee Lane",
+        "phone": "555-909-4545",
+        "website": "https://happydaycafe.com",
+        "image": "placeholder7.png",
+        "membership": 1
+    }
+]
