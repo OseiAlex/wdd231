@@ -1,56 +1,84 @@
-// MOBILE NAV
-const menuBtn = document.getElementById("menu-btn");
-const navMenu = document.getElementById("nav-menu");
-
-menuBtn.addEventListener("click", () => {
-    navMenu.classList.toggle("show");
-});
-
 // FOOTER INFO
 document.getElementById("year").textContent = new Date().getFullYear();
 document.getElementById("last-modified").textContent = document.lastModified;
 
-// DIRECTORY LOGIC
-const directory = document.getElementById("directory");
-const gridBtn = document.getElementById("grid-btn");
-const listBtn = document.getElementById("list-btn");
+// scripts/directory.js (ES module)
+const menuBtn = document.getElementById('menu-btn');
+const navList = document.getElementById('nav-list');
 
-async function loadMembers() {
-    const response = await fetch("data/members.json");
-    const members = await response.json();
-    displayGrid(members);
-}
-
-function displayGrid(data) {
-    directory.className = "grid";
-    directory.innerHTML = data.map(member => `
-        <div class="card">
-            <img src="images/${member.image}" alt="${member.name}">
-            <h3>${member.name}</h3>
-            <p>${member.address}</p>
-            <p>${member.phone}</p>
-            <a href="${member.website}" target="_blank">${member.website}</a>
-        </div>
-    `).join("");
-}
-
-function displayList(data) {
-    directory.className = "list";
-    directory.innerHTML = data.map(member => `
-        <div class="list-item">
-            <span>${member.name}</span>
-            <span>${member.phone}</span>
-            <span>${member.membership === 3 ? "Gold" : member.membership === 2 ? "Silver" : "Member"}</span>
-        </div>
-    `).join("");
-}
-
-gridBtn.addEventListener("click", loadMembers);
-listBtn.addEventListener("click", async () => {
-    const response = await fetch("data/members.json");
-    const members = await response.json();
-    displayList(members);
+menuBtn.addEventListener('click', () => {
+  const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+  menuBtn.setAttribute('aria-expanded', String(!expanded));
+  navList.style.display = expanded ? 'none' : 'block';
 });
 
-// Load default grid view
-loadMembers();
+/* footer info */
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('last-modified').textContent = document.lastModified || 'Unknown';
+
+/* view buttons */
+const gridBtn = document.getElementById('grid-btn');
+const listBtn = document.getElementById('list-btn');
+const directoryEl = document.getElementById('directory');
+
+async function fetchMembers() {
+  try {
+    const res = await fetch('data/members.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error('Failed to fetch members.json');
+    return await res.json();
+  } catch (err) {
+    console.error(err);
+    directoryEl.innerHTML = '<p>Error loading members.</p>';
+    return [];
+  }
+}
+
+function renderGrid(members) {
+  directoryEl.className = 'directory grid';
+  directoryEl.innerHTML = members.map(m => `
+    <article class="card" aria-label="${m.name}">
+      <img src="images/${m.image}" alt="${m.name} logo" loading="lazy">
+      <h3>${m.name}</h3>
+      <p>${m.address}</p>
+      <p>${m.phone}</p>
+      <p><a href="${m.website}" target="_blank" rel="noopener noreferrer">${m.website}</a></p>
+    </article>
+  `).join('');
+}
+
+function renderList(members) {
+  directoryEl.className = 'directory list';
+  directoryEl.innerHTML = members.map(m => `
+    <div class="list-item" role="listitem">
+      <div>
+        <strong>${m.name}</strong><br>
+        <span>${m.address}</span>
+      </div>
+      <div class="meta">
+        <div>${m.phone}</div>
+        <div>${m.membership === 3 ? 'Gold' : m.membership === 2 ? 'Silver' : 'Member'}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* Wire buttons */
+gridBtn.addEventListener('click', async () => {
+  gridBtn.setAttribute('aria-pressed', 'true');
+  listBtn.setAttribute('aria-pressed', 'false');
+  const mem = await fetchMembers();
+  renderGrid(mem);
+});
+
+listBtn.addEventListener('click', async () => {
+  listBtn.setAttribute('aria-pressed', 'true');
+  gridBtn.setAttribute('aria-pressed', 'false');
+  const mem = await fetchMembers();
+  renderList(mem);
+});
+
+/* Initial load */
+(async () => {
+  const mem = await fetchMembers();
+  renderGrid(mem);
+})();

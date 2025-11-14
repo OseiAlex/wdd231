@@ -12,7 +12,7 @@
         "address": "45 Meadow Lane",
         "phone": "555-222-3333",
         "website": "https://greenfarm.org",
-        "image": "placeholder2.png",
+        "image": "greenleaf.png",
         "membership": 2
     },
     {
@@ -20,7 +20,7 @@
         "address": "890 Westview Ave",
         "phone": "555-444-1111",
         "website": "https://sunsetrealty.com",
-        "image": "placeholder3.png",
+        "image": "sunset.png",
         "membership": 1
     },
     {
@@ -28,7 +28,7 @@
         "address": "67 River Road",
         "phone": "555-555-5555",
         "website": "https://riverstonebank.com",
-        "image": "placeholder4.png",
+        "image": "riverstone.png",
         "membership": 3
     },
     {
@@ -36,7 +36,7 @@
         "address": "200 Mountain Dr",
         "phone": "555-777-8888",
         "website": "https://peakfitness.com",
-        "image": "placeholder5.png",
+        "image": "peakfitness.png",
         "membership": 2
     },
     {
@@ -44,7 +44,7 @@
         "address": "15 Maple Street",
         "phone": "555-666-1212",
         "website": "https://crystalcleaners.com",
-        "image": "placeholder6.png",
+        "image": "crystalcleaners.png",
         "membership": 1
     },
     {
@@ -52,7 +52,15 @@
         "address": "89 Coffee Lane",
         "phone": "555-909-4545",
         "website": "https://happydaycafe.com",
-        "image": "placeholder7.png",
+        "image": "happyday.png",
+        "membership": 1
+    },
+    {
+        "name": "ASANo Electronics",
+        "address": "89 Maple Avenue",
+        "phone": "685-449-2445",
+        "website": "https://www.made-in-china.com/showroom/st850616/",
+        "image": "asano.png",
         "membership": 1
     }
 ]
