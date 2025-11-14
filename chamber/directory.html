@@ -1,61 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>City Chamber of Commerce | Directory</title>
-    <meta name="description" content="Business member directory for the City Chamber of Commerce.">
-    <meta name="author" content="Alex King Osei Junior">
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <!-- Open Graph -->
-     <meta property="og:title" content="City Chamber of Commerce Directory">
-    <meta property="og:description" content="Explore our business members in the City Chamber of Commerce.">
-    <meta property="og:image" content="https://oseialex.github.io/wdd231/chamber/images/logo1.webp">
-    <meta property="og:url" content="https://oseialex.github.io/wdd231/chamber/directory.html">
-    <meta name="twitter:card" content="summary_large_image">
+  <title>City Chamber of Commerce | Directory</title>
+  <meta name="description" content="Business member directory for the City Chamber of Commerce.">
+  <meta name="author" content="Alex King Osei Junior">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="styles/large.css">
-    <link rel="stylesheet" href="styles/small.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico">
+
+  <!-- Open Graph (absolute URLs required for GitHub Pages shares) -->
+  <meta property="og:title" content="City Chamber of Commerce Directory">
+  <meta property="og:description" content="Explore our business members in the City Chamber of Commerce.">
+  <meta property="og:image" content="https://oseialex.github.io/wdd231/chamber/images/logo1.webp">
+  <meta property="og:url" content="https://oseialex.github.io/wdd231/chamber/directory.html">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- CSS: mobile-first / small then large overrides -->
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/large.css" media="screen and (min-width: 701px)">
 </head>
-
 <body>
 
-<header>
-    <h1>City Chamber of Commerce</h1>
+  <header class="site-header">
+    <div class="brand">
+      <img src="images/logo1.webp" alt="BYU-I logo" width="48" height="48">
+      <h1>WDD 231: Chamber Directory</h1>
+    </div>
 
-    <nav>
-        <button id="menu-btn" aria-label="Menu"></button>
-        <ul id="nav-menu">
+    <nav class="main-nav" aria-label="Primary">
+        <button id="menu-btn" aria-expanded="false" aria-controls="nav-list" aria-label="Toggle menu">
+            ☰
+        </button>
+        <ul id="nav-list" class="nav-list">
             <li><a href="index.html">Home</a></li>
-            <li><a href="directory.html" class="active">Directory</a></li>
+            <li><a href="directory.html" aria-current="page">Directory</a></li>
             <li><a href="discover.html">Discover</a></li>
             <li><a href="join.html">Join</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
-</header>
+  </header>
 
-<main>
-
-    <section class="view-buttons">
-        <button id="grid-btn">Grid View</button>
-        <button id="list-btn">List View</button>
+  <main id="main" class="container">
+    <section class="controls" aria-label="View controls">
+      <label for="view-toggle" class="sr-only">Toggle view</label>
+      <button id="grid-btn" aria-pressed="true">Grid View</button>
+      <button id="list-btn" aria-pressed="false">List View</button>
     </section>
 
-    <section id="directory" class="grid"></section>
+    <section id="directory" class="directory grid" aria-live="polite">
+      <!-- Members injected here by scripts/directory.js -->
+    </section>
+  </main>
 
-</main>
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> | Alex King Osei Junior | WDD 231</p>
+    <p>Last Modified: <time id="last-modified"></time></p>
+  </footer>
 
-<footer>
-    <p>&copy; <span id="year"></span> Alex King Osei Junior | WDD 231</p>
-    <p>Last Modified: <span id="last-modified"></span></p>
-</footer>
-
-<script src="scripts/directory.js" type="module"></script>
+  <script type="module" src="scripts/directory.js"></script>
 </body>
 </html>
