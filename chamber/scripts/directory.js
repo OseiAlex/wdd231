@@ -1,6 +1,8 @@
 // footer info
-document.getElementById("year").textContent = new Date().getFullYear();
-document.getElementById("last-modified").textContent = document.lastModified;
+const lastModifiedEl = document.getElementById("last-modified");
+const modifiedDate = new Date(document.lastModified);
+lastModifiedEl.setAttribute("datetime", modifiedDate.toISOString());
+lastModifiedEl.textContent = modifiedDate.toLocaleString();
 
 // scripts/directory.js (ES module)
 const menuBtn = document.getElementById('menu-btn');
