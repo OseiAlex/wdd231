@@ -2,10 +2,17 @@
 
 /* show nav as horizontal on larger screens */
 .nav-list {
-  display: flex !important;
-  gap: 1rem;
-  align-items: center;
-}
+    display: flex !important;      /* show the full nav */
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    background: none;
+    padding: 0;
+  }
+
+ #menu-btn {
+    display: none; /* hide hamburger icon */
+  }
 
 /* Desktop grid: 2-3 columns depending on width */
 @media (min-width: 701px) {

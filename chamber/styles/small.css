@@ -38,19 +38,21 @@ body {
 .brand { display:flex; gap:0.5rem; align-items:center; }
 .brand h1 { font-size: 1rem; margin: 0; }
 
-/* Nav */
 #menu-btn {
   background: transparent;
-  border: 0;
+  border: none;
+  font-size: 1.6rem;
   color: #fff;
-  font-size: 1.25rem;
-  display: inline-block;
+  cursor: pointer;
+  display: block; /* show on mobile */
 }
+
 .nav-list {
-  list-style: none;
-  display: none;            /* hidden on small — toggled by JS */
-  gap: 0.5rem;
-  margin-top: 0.5rem;
+  display: none; /* hidden until button click */
+  flex-direction: column;
+  gap: 0.75rem;
+  background: var(--primary);
+  padding: 1rem;
 }
 .nav-list li { margin: 0.25rem 0; }
 .nav-list a { color: #fff; text-decoration: none; padding: 0.35rem 0.5rem; display:inline-block; }
