@@ -1,15 +1,7 @@
-
-
-/* Document
-   ========================================================================== */
-
 html {
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
 }
-
-/* Sections
-   ========================================================================== */
 
 body {
     margin: 0;
@@ -24,9 +16,6 @@ h1 {
     margin: 0.67em 0;
 }
 
-/* Grouping content
-   ========================================================================== */
-
 hr {
     box-sizing: content-box;
     height: 0;
@@ -37,9 +26,6 @@ pre {
     font-family: monospace, monospace;
     font-size: 1em;
 }
-
-/* Text-level semantics
-   ========================================================================== */
 
 a {
     background-color: transparent;
@@ -81,20 +67,12 @@ sub {
 sup {
     top: -0.5em;
 }
-
-/* Embedded content
-   ========================================================================== */
-
 img {
     border-style: none;
     max-width: 100%;
     height: auto;
     display: block;
 }
-
-/* Forms
-   ========================================================================== */
-
 button,
 input,
 optgroup,
@@ -184,9 +162,6 @@ textarea {
     font: inherit;
 }
 
-/* Interactive
-   ========================================================================== */
-
 details {
     display: block;
 }
@@ -194,9 +169,6 @@ details {
 summary {
     display: list-item;
 }
-
-/* Misc
-   ========================================================================== */
 
 template {
     display: none;
