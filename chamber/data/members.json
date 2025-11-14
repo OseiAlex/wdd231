@@ -62,5 +62,13 @@
         "website": "https://www.made-in-china.com/showroom/st850616/",
         "image": "asano.png",
         "membership": 1
+    },
+    {
+        "name": "BlueWave Software",
+        "address": "300 Tech Park",
+        "phone": "555-888-9999",
+        "website": "https://bluewavesoftware.com",
+        "image": "bluewave.png",
+        "membership": 2
     }
 ]
