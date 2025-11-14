@@ -1,4 +1,4 @@
-// FOOTER INFO
+// footer info
 document.getElementById("year").textContent = new Date().getFullYear();
 document.getElementById("last-modified").textContent = document.lastModified;
 
@@ -11,10 +11,6 @@ menuBtn.addEventListener('click', () => {
   menuBtn.setAttribute('aria-expanded', String(!expanded));
   navList.style.display = expanded ? 'none' : 'block';
 });
-
-/* footer info */
-document.getElementById('year').textContent = new Date().getFullYear();
-document.getElementById('last-modified').textContent = document.lastModified || 'Unknown';
 
 /* view buttons */
 const gridBtn = document.getElementById('grid-btn');

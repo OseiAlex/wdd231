@@ -1,8 +1,6 @@
-/* large.css — desktop and larger view overrides */
-
-/* show nav as horizontal on larger screens */
-.nav-list {
-    display: flex !important;      /* show the full nav */
+@media (min-width: 701px) {
+  .nav-list {
+    display: flex; /* override mobile */
     flex-direction: row;
     align-items: center;
     gap: 1.5rem;
@@ -10,12 +8,10 @@
     padding: 0;
   }
 
- #menu-btn {
-    display: none; /* hide hamburger icon */
+  #menu-btn {
+    display: none; /* hide hamburger */
   }
 
-/* Desktop grid: 2-3 columns depending on width */
-@media (min-width: 701px) {
   .directory.grid {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   }
