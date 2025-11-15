@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>City Chamber of Commerce | Home</title>
+  <meta name="description" content="Welcome to the City Chamber of Commerce — supporting local businesses in Accra, Ghana.">
+  <meta name="author" content="Alex King Osei Junior">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Open Graph (absolute URLs recommended for GitHub Pages) -->
+  <meta property="og:title" content="City Chamber of Commerce — Welcome">
+  <meta property="og:description" content="Supporting local businesses in Accra. Join, discover events, and see member spotlights.">
+  <meta property="og:image" content="https://oseialex.github.io/wdd231/chamber/images/logo1.webp">
+  <meta property="og:url" content="https://oseialex.github.io/wdd231/chamber/index.html">
+
+  <!-- CSS: mobile-first small then large overrides -->
+  <link rel="stylesheet" href="styles/smallscreen.css">
+  <link rel="stylesheet" href="styles/largescreen.css" media="screen and (min-width: 701px)">
+
+  <!-- JavaScript -->
+  <script type="module" src="scripts/home.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">
+      <img src="images/logo1.webp" alt="BYU-I logo" width="48" height="48">
+      <h1>City Chamber of Commerce</h1>
+    </div>
+
+    <nav class="main-nav" aria-label="Primary">
+      <button id="menu-btn" aria-expanded="false" aria-controls="nav-list" aria-label="Toggle menu">☰</button>
+
+      <ul id="nav-list" class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="discover.html">Discover</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="container">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <img src="images/hero-accra.webp" alt="A view of Accra city skyline" class="hero-img" loading="lazy">
+      <div class="hero-overlay">
+        <h2 id="hero-heading">Welcome to the City Chamber of Commerce</h2>
+        <p>Connecting businesses and community in Accra.</p>
+        <a class="cta" href="join.html">Join the Chamber</a>
+      </div>
+    </section>
+
+    <!-- CURRENT EVENTS -->
+    <section id="events" class="events" aria-labelledby="events-heading">
+      <h2 id="events-heading">Current Events</h2>
+      <article class="event">
+        <h3>Business Growth Workshop</h3>
+        <p>Next workshop: Sat, Nov 22 — Small business marketing & digital tools. (Placeholder content.)</p>
+        <p><a href="discover.html">See more events</a></p>
+      </article>
+    </section>
+
+    <!-- WEATHER -->
+    <section id="weather" class="weather" aria-labelledby="weather-heading">
+      <h2 id="weather-heading">Accra Weather</h2>
+      <div id="weather-card" class="weather-card" aria-live="polite">
+        <p class="loading">Loading weather…</p>
+      </div>
+    </section>
+
+    <!-- SPOTLIGHTS -->
+    <section id="spotlights" class="spotlights" aria-labelledby="spotlights-heading">
+      <h2 id="spotlights-heading">Member Spotlights</h2>
+      <div id="spotlight-list" class="spotlight-list">
+        <!-- 2-3 random silver/gold members injected here -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span>Alex King Osei Junior | WDD 231</p>
+    <p id="last-modified"></p>
+  </footer>
+</body>
+</html>

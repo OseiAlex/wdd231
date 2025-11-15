@@ -1,0 +1,30 @@
+/* large.css - desktop overrides */
+
+@media (min-width:701px){
+
+  /* hide hamburger */
+  #menu-btn { display:none; }
+
+  /* nav horizontal */
+  .nav-list {
+    display:flex !important;
+    gap:1rem;
+    background:none;
+    padding:0;
+    align-items:center;
+  }
+  .nav-list li { margin:0; }
+  .nav-list a { color:#fff; padding:0.25rem 0; }
+
+  /* hero overlay adjustments */
+  .hero-overlay { padding:2rem; align-items:flex-start; }
+
+  /* spotlight grid with 2 columns */
+  .spotlight-list { grid-template-columns: repeat(2, 1fr); }
+
+  /* weather card inline with events in two column layout (if desired) */
+  .container { display:grid; grid-template-columns: 2fr 1fr; gap:1rem; align-items:start; }
+  /* move some blocks into left area - layout technique: wrap main content in left column */
+  main > .events, main > .hero, main > .spotlights { grid-column: 1 / 2; }
+  main > .weather { grid-column: 2 / 3; }
+}
