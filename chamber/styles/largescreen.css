@@ -17,7 +17,10 @@
   .nav-list a { color:#fff; padding:0.25rem 0; }
 
   /* hero overlay adjustments */
-  .hero-overlay { padding:2rem; align-items:flex-start; }
+ @media (min-width: 701px) {
+  .hero-img { height: 420px; }
+  .hero-overlay { padding: 2rem; }
+}
 
   /* spotlight grid with 2 columns */
   .spotlight-list { grid-template-columns: repeat(2, 1fr); }

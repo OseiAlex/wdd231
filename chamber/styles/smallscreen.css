@@ -1,5 +1,3 @@
-/* small.css — mobile-first */
-
 *,
 *::before,
 *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -58,20 +56,44 @@ body {
 .nav-list a{ color:#fff; text-decoration:none; display:block; padding:0.25rem 0; }
 
 /* HERO */
-.hero { position:relative; margin:1rem 0; border-radius:8px; overflow:hidden; }
-.hero-img { display:block; width:100%; height:auto; }
-.hero-overlay {
-  position:absolute;
-  inset:0;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:flex-start;
-  gap:0.5rem;
-  padding:1rem;
-  background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.45));
-  color:#fff;
+/* HERO — make image cover and overlay ensure contrast */
+.hero {
+  position: relative;
+  margin: 1rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #000; /* fallback while image loads */
 }
+
+/* Make hero image cover the container area */
+.hero-img {
+  display: block;
+  width: 100%;
+  height: 320px;          /* adjust height as desired */
+  object-fit: cover;
+  vertical-align: middle;
+}
+
+/* Overlay sits on top of the image and ensures good contrast */
+.hero-overlay {
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 1rem;
+  color: #ffffff; /* white text */
+  /* strong dark translucent background to pass AA contrast */
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.45)
+  );
+  /* keep overlay above the image */
+  z-index: 2;
+}
+
 .hero-overlay h2{ font-size:1.4rem; margin:0; }
 .hero-overlay p{ margin:0 0 0.5rem 0; }
 .cta{
