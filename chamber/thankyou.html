@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | Your Chamber</title>
+   <meta name="description" content="Join the City Chamber of Commerce — apply for membership.">
+  <meta name="author" content="Alex King Osei Junior">
+  <link rel="icon" href="images/favicon.ico">
+
+  <!-- site CSS and page-specific CSS -->
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/large.css" media="screen and (min-width:701px)">
+  <link rel="stylesheet" href="styles/join.css">
+
+  <script src="scripts/join.js" defer></script>
+</head>
+
+<body>
+
+<header>
+    <h1>Thank You!</h1>
+</header>
+
+<main class="thankyou">
+
+<h2>Your Application Was Received</h2>
+
+<p><strong>First Name:</strong> <span id="first"></span></p>
+<p><strong>Last Name:</strong> <span id="last"></span></p>
+<p><strong>Email:</strong> <span id="email"></span></p>
+<p><strong>Phone:</strong> <span id="phone"></span></p>
+<p><strong>Organization:</strong> <span id="organization"></span></p>
+<p><strong>Submitted On:</strong> <span id="timestamp"></span></p>
+
+</main>
+
+<script>
+    // Function to get query parameters
+    function getQueryParams() {
+        const params = new URLSearchParams(window.location.search);
+        return {
+            first: params.get('first') || '',
+            last: params.get('last') || '',
+            email: params.get('email') || '',
+            phone: params.get('phone') || '',
+            organization: params.get('organization') || '',
+            timestamp: params.get('timestamp') || ''
+        };
+    }
+    
+    // Populate the thank you page with form data
+    document.addEventListener('DOMContentLoaded', () => {
+        const data = getQueryParams();
+        document.getElementById('first').textContent = data.first;
+        document.getElementById('last').textContent = data.last;
+        document.getElementById('email').textContent = data.email;
+        document.getElementById('phone').textContent = data.phone;
+        document.getElementById('organization').textContent = data.organization;
+        document.getElementById('timestamp').textContent = new Date(data.timestamp).toLocaleString();
+    });
+</script>
+
+</body>
+</html>

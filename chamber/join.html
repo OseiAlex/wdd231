@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>City Chamber of Commerce | Join</title>
+  <meta name="description" content="Join the City Chamber of Commerce — apply for membership.">
+  <meta name="author" content="Alex King Osei Junior">
+  <link rel="icon" href="images/favicon.ico">
+
+  <link rel="icon" href="images/favicon.ico">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Open Graph (absolute URLs recommended for GitHub Pages) -->
+  <meta property="og:title" content="City Chamber of Commerce — Welcome">
+  <meta property="og:description" content="Supporting local businesses in Accra. Join, discover events, and see member spotlights.">
+  <meta property="og:image" content="https://oseialex.github.io/wdd231/chamber/images/logo1.webp">
+  <meta property="og:url" content="https://oseialex.github.io/wdd231/chamber/index.html">
+
+  <!-- site CSS and page-specific CSS -->
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/large.css" media="screen and (min-width:701px)">
+  <link rel="stylesheet" href="styles/join.css">
+
+  <script src="scripts/join.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img src="images/logo1.webp" alt="BYU-I logo" width="48" height="48">
+      <h1>City Chamber of Commerce</h1>
+    </div>
+
+    <nav class="main-nav" aria-label="Primary">
+      <button id="menu-btn" aria-expanded="false" aria-controls="nav-list" aria-label="Toggle menu">☰</button>
+      <ul id="nav-list" class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="discover.html">Discover</a></li>
+        <li><a href="join.html" aria-current="page">Join</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container" id="main">
+    <h2 class="sr-only">Join the Chamber</h2>
+
+    <section class="join-area" aria-labelledby="form-heading">
+      <h2 id="form-heading">Membership Application</h2>
+
+      <form id="join-form" method="get" action="thankyou.html" novalidate>
+        <!-- First Name -->
+        <label>
+          <span>First name *</span>
+          <input
+            type="text"
+            name="first"
+            title="Applicant first name"
+            autocomplete="given-name"
+            required
+            inputmode="text"
+            />
+        </label>
+
+        <!-- Last Name -->
+        <label>
+          <span>Last name *</span>
+          <input
+            type="text"
+            name="last"
+            title="Applicant last name"
+            autocomplete="family-name"
+            required
+            inputmode="text"
+            />
+        </label>
+
+        <!-- Organizational Title (pattern: alpha, hyphen, spaces, min 7) -->
+        <label>
+          <span>Title (organization) *</span>
+          <input
+            type="text"
+            name="jobtitle"
+            title="Your title at the organization (letters, spaces, hyphens; minimum 7 characters)"
+            autocomplete="organization-title"
+            pattern="^[A-Za-z\s-]{7,}$"
+            required
+            />
+        </label>
+
+        <!-- Email -->
+        <label>
+          <span>Email *</span>
+          <input
+            type="email"
+            name="email"
+            title="Applicant email address"
+            autocomplete="email"
+            placeholder="name@example.com"
+            required
+            />
+        </label>
+
+        <!-- Mobile Phone -->
+        <label>
+          <span>Mobile phone *</span>
+          <input
+            type="tel"
+            name="phone"
+            title="Applicant mobile phone"
+            autocomplete="tel"
+            inputmode="tel"
+            required
+            />
+        </label>
+
+        <!-- Business/Organization Name -->
+        <label>
+          <span>Business / Organization *</span>
+          <input
+            type="text"
+            name="organization"
+            title="Business or organization name"
+            autocomplete="organization"
+            required
+            />
+        </label>
+
+        <!-- Membership Level selection (radio) -->
+        <fieldset>
+          <legend>Membership Level *</legend>
+          <label><input type="radio" name="membership" value="np" required> NP Membership (np)</label>
+          <label><input type="radio" name="membership" value="bronze"> Bronze Membership (bronze)</label>
+          <label><input type="radio" name="membership" value="silver"> Silver Membership (silver)</label>
+          <label><input type="radio" name="membership" value="gold"> Gold Membership (gold)</label>
+        </fieldset>
+
+        <!-- Business Description -->
+        <label>
+          <span>Organization description</span>
+          <textarea name="description" title="Business/organization description" rows="4"></textarea>
+        </label>
+
+        <!-- Hidden timestamp - populated by JS when page loads -->
+        <input type="hidden" name="timestamp" id="timestamp">
+
+        <!-- Submit -->
+        <div class="form-actions">
+          <input type="submit" value="Apply for Membership">
+        </div>
+      </form>
+    </section>
+
+    <!-- Membership cards area (on small screens below form, on large screens appears to right) -->
+    <aside class="membership-cards" aria-labelledby="membership-heading">
+      <h2 id="membership-heading">Membership Levels</h2>
+
+      <div class="cards" id="cards">
+        <!-- NP -->
+        <article class="card card-animate" data-level="np">
+          <h3>NP Membership</h3>
+          <p>For non-profit organizations — no fee.</p>
+          <p><a class="open-modal" href="#" data-modal="modal-np">Benefits &raquo;</a></p>
+        </article>
+
+        <!-- Bronze -->
+        <article class="card card-animate" data-level="bronze">
+          <h3>Bronze Membership</h3>
+          <p>Entry-level membership with promotion benefits.</p>
+          <p><a class="open-modal" href="#" data-modal="modal-bronze">Benefits &raquo;</a></p>
+        </article>
+
+        <!-- Silver -->
+        <article class="card card-animate" data-level="silver">
+          <h3>Silver Membership</h3>
+          <p>Includes Silver benefits and spotlight eligibility.</p>
+          <p><a class="open-modal" href="#" data-modal="modal-silver">Benefits &raquo;</a></p>
+        </article>
+
+        <!-- Gold -->
+        <article class="card card-animate" data-level="gold">
+          <h3>Gold Membership</h3>
+          <p>Top-level with homepage banner & promotions.</p>
+          <p><a class="open-modal" href="#" data-modal="modal-gold">Benefits &raquo;</a></p>
+        </article>
+      </div>
+    </aside>
+
+    <!-- Modals (dialog elements) -->
+    <dialog id="modal-np" aria-labelledby="modal-np-title">
+      <h3 id="modal-np-title">NP Membership Benefits</h3>
+      <ul>
+        <li>Free listing in directory</li>
+        <li>Access to networking events</li>
+      </ul>
+      <button class="close-modal">Close</button>
+    </dialog>
+
+    <dialog id="modal-bronze" aria-labelledby="modal-bronze-title">
+      <h3 id="modal-bronze-title">Bronze Membership Benefits</h3>
+      <ul>
+        <li>All NP benefits</li>
+        <li>Social media promotion</li>
+        <li>Event discounts</li>
+      </ul>
+      <button class="close-modal">Close</button>
+    </dialog>
+
+    <dialog id="modal-silver" aria-labelledby="modal-silver-title">
+      <h3 id="modal-silver-title">Silver Membership Benefits</h3>
+      <ul>
+        <li>All Bronze benefits</li>
+        <li>Spotlight feature eligibility</li>
+        <li>Priority event registration</li>
+      </ul>
+      <button class="close-modal">Close</button>
+    </dialog>
+
+    <dialog id="modal-gold" aria-labelledby="modal-gold-title">
+      <h3 id="modal-gold-title">Gold Membership Benefits</h3>
+      <ul>
+        <li>All Silver benefits</li>
+        <li>Homepage banner opportunity</li>
+        <li>Dedicated promotional article</li>
+      </ul>
+      <button class="close-modal">Close</button>
+    </dialog>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Alex King Osei Junior | WDD 231</p>
+  <p id="last-modified"></p>
+  </footer>
+</body>
+</html>
