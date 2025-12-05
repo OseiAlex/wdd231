@@ -2,6 +2,8 @@
 
 /* Basic resets & variables */
 :root {
+  --accent: #0D47A1;       /* WCAG AA compliant */
+  --accent-dark: #0D47A1; /* added for discover.css */
   --card-bg: #ffffff;
   --hover-scale: 1.06;
   --hover-contrast: 1.05;
