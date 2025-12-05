@@ -1,8 +1,6 @@
 /* styles/discover.css */
 
-/* ----------------------------------------------------------
-   Variables
------------------------------------------------------------ */
+/* Variables*/
 :root {
   --accent: #0D47A1;        /* WCAG AA compliant */
   --accent-dark: #0D47A1;
@@ -14,9 +12,7 @@
   --muted: #6b6b6b;
 }
 
-/* ----------------------------------------------------------
-   Base styling
------------------------------------------------------------ */
+/*Base styling*/
 * { box-sizing: border-box; }
 
 body {
@@ -59,9 +55,7 @@ body {
   font-weight: 600; 
 }
 
-/* ----------------------------------------------------------
-   Visit Message Box
------------------------------------------------------------ */
+/* Visit Message Box */
 .visit-message {
   position: relative;
   background: #fffbe6;
@@ -81,9 +75,7 @@ body {
   cursor: pointer;
 }
 
-/* ----------------------------------------------------------
-   Cards Grid (Mobile-first SINGLE definition)
------------------------------------------------------------ */
+/*Cards Grid (Mobile-first SINGLE definition) */
 .cards-grid {
   display: grid;
   gap: var(--gap);
@@ -100,9 +92,7 @@ body {
     "card8";
 }
 
-/* ----------------------------------------------------------
-   Card Style
------------------------------------------------------------ */
+/*Card Style*/
 .card {
   background: var(--card-bg);
   padding: 0.9rem;
@@ -159,9 +149,7 @@ body {
   overflow: hidden;
 }
 
-/* ----------------------------------------------------------
-   Tablet Layout (641px to 1024px)
------------------------------------------------------------ */
+/*Tablet Layout (641px to 1024px)*/
 @media (min-width: 641px) and (max-width: 1024px) {
   .cards-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -173,9 +161,7 @@ body {
   }
 }
 
-/* ----------------------------------------------------------
-   Desktop Layout (1025px+)
------------------------------------------------------------ */
+/*Desktop Layout (1025px+) */
 @media (min-width: 1025px) {
 
   .cards-grid {
@@ -197,9 +183,7 @@ body {
   }
 }
 
-/* ----------------------------------------------------------
-   Utility Fixes
------------------------------------------------------------ */
+/*Utility Fixes */
 .cards-grid > .card { width: 100%; }
 
 .learn-btn:focus {
