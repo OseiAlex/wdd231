@@ -1,4 +1,9 @@
 /* base.css */
+:root {
+    --accent: #0D47A1;       /* WCAG AA compliant */
+    --accent-dark: #0D47A1; /* added for discover.css */
+}
+
 .wrap{
   max-width:1100px;
   margin:auto;
@@ -12,7 +17,7 @@
 }
 
 .site-footer {
-  background: #003366;
+  background: #0D47A1;
   color: #fff;
   padding: 0.8rem 1rem;
   text-align: center;
