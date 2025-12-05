@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Discover | Your Chamber</title>
+
+  <meta name="description" content="Welcome to the City Chamber of Commerce — supporting local businesses in Accra, Ghana.">
+  <meta name="author" content="Alex King Osei Junior">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Open Graph (absolute URLs recommended for GitHub Pages) -->
+  <meta property="og:title" content="City Chamber of Commerce — Welcome">
+  <meta property="og:description" content="Supporting local businesses in Accra. Join, discover events, and see member spotlights.">
+  <meta property="og:image" content="https://oseialex.github.io/wdd231/chamber/images/logo1.webp">
+  <meta property="og:url" content="https://oseialex.github.io/wdd231/chamber/index.html">
+
+  <!-- main site CSS (keeps header/footer consistent) -->
+  <link rel="stylesheet" href="styles/discover.css">
+
+  <!-- load module script that imports data and builds the page -->
+  <script type="module" src="scripts/discover.js" defer></script>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="wrap">
+      <h1 class="site-title"><img src="images/logo1.webp" alt="BYU-I logo" width="48" height="48"><a href="index.html"> City Chamber of Commerce</a></h1>
+        <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="discover.html" aria-current="page">Discover</a></li>
+          <li><a href="join.html">Join</a></li>
+          <li><a href="directory.html">Directory</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="discover-page" id="main" role="main">
+    <div class="wrap">
+      <h2>Discover Our Area</h2>
+
+      <!-- Visitor message area controlled by localStorage -->
+      <div id="visit-message" class="visit-message" role="region" aria-live="polite">
+        <!-- JS will fill this -->
+        <button id="close-msg" class="close-msg" aria-label="Close message">&times;</button>
+        <p id="visit-text"></p>
+      </div>
+
+      <!-- Cards container — JS will append 8 cards here -->
+      <section id="cards-grid" class="cards-grid" aria-label="Places of interest">
+        <!-- cards injected from JSON -->
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Alex King Osei Junior | WDD 231</p>
+    <p id="last-modified"></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,174 @@
+/* styles/discover.css */
+
+/* Basic resets & variables */
+:root{
+  --bg: #ffffff;
+  --page-bg: #fbfbfb;
+  --accent: #1e88e5;
+  --secondary: #0066aa;
+  --muted: #6b6b6b;
+  --card-bg: #fff;
+  --gap: 1rem;
+  --max-width: 1100px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--page-bg);
+  color:#222;
+  line-height:1.4;
+}
+
+/* wrapper */
+.wrap{
+  max-width: var(--max-width);
+  margin:0 auto;
+  padding: 1rem;
+}
+
+/* header/footer minimal */
+.site-header, .site-footer{
+  background: white;
+  border-bottom:1px solid #e6e6e6;
+}
+.site-header .wrap, .site-footer .wrap { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+.site-title { margin:0; font-size:1.15rem; }
+.main-nav ul{ list-style:none; margin:0; padding:0; display:flex; gap:1rem;}
+.main-nav a{ text-decoration:none; color:var(--muted); }
+.main-nav a[aria-current="page"] { color:var(--accent); font-weight:600; }
+
+/* visit message */
+.visit-message{
+  position:relative;
+  background: #fffbe6;
+  border:1px solid #ffe58f;
+  padding: 0.6rem 2.4rem 0.6rem 0.8rem;
+  margin: 0.6rem 0 1rem 0;
+  border-radius:6px;
+}
+.visit-message .close-msg{
+  position:absolute;
+  right:6px;
+  top:6px;
+  background:transparent;
+  border:0;
+  font-size:1.2rem;
+  cursor:pointer;
+}
+
+/* Cards grid container */
+.cards-grid{
+  display:grid;
+  gap: var(--gap);
+  margin-top: 1rem;
+}
+
+/* Card basic */
+.card{
+  background: var(--card-bg);
+  padding: 0.9rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  border: 1px solid #eee;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.card h2{ margin:0 0 .5rem 0; font-size:1.05rem; color:var(--accent); }
+.card figure{ margin:0 0 .6rem 0; overflow:hidden; border-radius:6px; }
+.card img{ display:block; width:100%; height:auto; max-width:100%; object-fit:cover; }
+
+/* address styling */
+.card address{
+  font-style:normal;
+  color: #555;
+  font-size:0.9rem;
+  margin-bottom:0.45rem;
+}
+
+/* learn button */
+.learn-btn{
+  margin-top: .6rem;
+  align-self:flex-start;
+  padding: .45rem .65rem;
+  border: none;
+  background: var(--accent);
+  color: white;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+/* visually-hidden for figcaption */
+.visually-hidden{ position:absolute !important; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+
+/* ----------------------------------------------------------
+   Named grid areas — three different layouts (small/medium/large)
+   Each card element is assigned style.gridArea = card1..card8 in JS
+   ---------------------------------------------------------- */
+
+/* Small screens: 320 - 640px (single column stacked) */
+.cards-grid{
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "card1"
+    "card2"
+    "card3"
+    "card4"
+    "card5"
+    "card6"
+    "card7"
+    "card8";
+}
+
+/* Medium screens: 641 - 1024px (two columns grid) */
+@media (min-width: 641px) and (max-width: 1024px){
+  .cards-grid{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "card1 card2"
+      "card3 card4"
+      "card5 card6"
+      "card7 card8";
+  }
+}
+
+/* Large screens: 1025px and up — different arrangement using named areas */
+@media (min-width: 1025px){
+  .cards-grid{
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "card1 card1 card2 card3"
+      "card4 card5 card6 card7"
+      "card8 card8 card8 card8";
+    align-items:start;
+  }
+
+  /* image hover effect only for large screens */
+  .card figure img{
+    transition: transform .35s ease, filter .35s ease;
+    will-change: transform;
+  }
+  .card:hover figure img{
+    transform: scale(1.06);
+    filter: contrast(1.03) saturate(1.05);
+  }
+}
+
+/* ensure each card that the JS assigns has 100% width inside grid area */
+.cards-grid > .card{ width:100%; }
+
+/* small accessibility tweaks for keyboard focus on button */
+.learn-btn:focus { outline: 3px solid #cfe9ff; outline-offset: 2px; }
+
+/* ensure no horizontal scroll at any size */
+html,body{ overflow-x:hidden; }
+
+.site-footer {
+  background: var(--secondary);
+  color: #fff;
+  padding: 0.8rem 1rem;
+  text-align: center;
+  margin-top: 1rem;
+}
