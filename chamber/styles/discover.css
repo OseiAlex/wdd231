@@ -1,40 +1,67 @@
 /* styles/discover.css */
 
-/* Basic resets & variables */
+/* ----------------------------------------------------------
+   Variables
+----------------------------------------------------------- */
 :root {
-  --accent: #0D47A1;       /* WCAG AA compliant */
-  --accent-dark: #0D47A1; /* added for discover.css */
+  --accent: #0D47A1;        /* WCAG AA compliant */
+  --accent-dark: #0D47A1;
   --card-bg: #ffffff;
   --hover-scale: 1.06;
   --hover-contrast: 1.05;
   --gap: 1rem;
+  --page-bg: #fafafa;
+  --muted: #6b6b6b;
 }
 
+/* ----------------------------------------------------------
+   Base styling
+----------------------------------------------------------- */
+* { box-sizing: border-box; }
 
-*{box-sizing:border-box}
-body{
-  margin:0;
+body {
+  margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background:var(--page-bg);
-  color:#222;
-  line-height:1.4;
+  background: var(--page-bg);
+  color: #222;
+  line-height: 1.4;
 }
 
-/* wrapper */
-.wrap{
+/* Wrapper */
+.wrap {
   max-width: 1100px;
-  margin:0 auto;
+  margin: 0 auto;
   padding: 1rem;
 }
 
-/* header/footer minimal */
-.site-header .wrap, .site-footer .wrap { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
-.site-title { margin:0; font-size:1.15rem; }
-.main-nav ul{ list-style:none; margin:0; padding:0; display:flex; gap:1rem;}
-.main-nav a{ text-decoration:none; color:var(--muted); }
-.main-nav a[aria-current="page"] { color:var(--accent); font-weight:600; }
+/* Header/Footer */
+.site-header .wrap,
+.site-footer .wrap {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 1rem;
+}
 
-/* visit message */
+.site-title { margin: 0; font-size: 1.15rem; }
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.main-nav a { text-decoration: none; color: var(--muted); }
+.main-nav a[aria-current="page"] { 
+  color: var(--accent); 
+  font-weight: 600; 
+}
+
+/* ----------------------------------------------------------
+   Visit Message Box
+----------------------------------------------------------- */
 .visit-message {
   position: relative;
   background: #fffbe6;
@@ -54,11 +81,14 @@ body{
   cursor: pointer;
 }
 
-/* Cards grid container */
+/* ----------------------------------------------------------
+   Cards Grid (Mobile-first SINGLE definition)
+----------------------------------------------------------- */
 .cards-grid {
   display: grid;
   gap: var(--gap);
   margin-top: 1.5rem;
+  grid-template-columns: 1fr;
   grid-template-areas:
     "card1"
     "card2"
@@ -70,8 +100,10 @@ body{
     "card8";
 }
 
-/* Card basic */
-.card{
+/* ----------------------------------------------------------
+   Card Style
+----------------------------------------------------------- */
+.card {
   background: var(--card-bg);
   padding: 0.9rem;
   border-radius: 8px;
@@ -85,7 +117,7 @@ body{
 .card h2 {
   margin: 0 0 0.5rem 0;
   font-size: 1.1rem;
-  color: var(--accent-dark); /* UPDATED COLOR FOR WCAG AA */
+  color: var(--accent-dark);
 }
 
 .card figure {
@@ -101,7 +133,6 @@ body{
   display: block;
 }
 
-/* address styling */
 .card address {
   font-style: normal;
   font-size: 0.9rem;
@@ -109,7 +140,6 @@ body{
   margin-bottom: 0.45rem;
 }
 
-/* learn button */
 .learn-btn {
   margin-top: 0.6rem;
   padding: 0.45rem 0.65rem;
@@ -120,74 +150,61 @@ body{
   cursor: pointer;
 }
 
-/* visually-hidden for figcaption */
+/* Screen-reader only */
 .visually-hidden {
   position: absolute !important;
   left: -9999px;
-  top: auto;
   width: 1px;
   height: 1px;
   overflow: hidden;
 }
 
 /* ----------------------------------------------------------
-   Named grid areas — three different layouts (small/medium/large)
-   Each card element is assigned style.gridArea = card1..card8 in JS
-   ---------------------------------------------------------- */
-
-/* Small screens: 320 - 640px (single column stacked) */
-.cards-grid{
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "card1"
-    "card2"
-    "card3"
-    "card4"
-    "card5"
-    "card6"
-    "card7"
-    "card8";
-}
-
-/* Medium screens: 641 - 1024px (two columns grid) */
+   Tablet Layout (641px to 1024px)
+----------------------------------------------------------- */
 @media (min-width: 641px) and (max-width: 1024px) {
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas:
-            "card1 card2"
-            "card3 card4"
-            "card5 card6"
-            "card7 card8";
-    }
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "card1 card2"
+      "card3 card4"
+      "card5 card6"
+      "card7 card8";
+  }
 }
 
-/* Large screens: 1025px and up — different arrangement using named areas */
+/* ----------------------------------------------------------
+   Desktop Layout (1025px+)
+----------------------------------------------------------- */
 @media (min-width: 1025px) {
-    .cards-grid {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-areas:
-            "card1 card1 card2 card3"
-            "card4 card5 card6 card7"
-            "card8 card8 card8 card8";
-    }
 
+  .cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "card1 card1 card2 card3"
+      "card4 card5 card6 card7"
+      "card8 card8 card8 card8";
+  }
 
-  /* image hover effect only for large screens */
+  /* Desktop-only hover effect */
   .card figure img {
-      transition: transform 0.35s ease, filter 0.35s ease;
-    }
+    transition: transform 0.35s ease, filter 0.35s ease;
+  }
   
-    .card:hover figure img {
-        transform: scale(var(--hover-scale));
-        filter: contrast(var(--hover-contrast));
-    }
+  .card:hover figure img {
+    transform: scale(var(--hover-scale));
+    filter: contrast(var(--hover-contrast));
+  }
 }
 
-/* ensure each card that the JS assigns has 100% width inside grid area */
-.cards-grid > .card{ width:100%; }
+/* ----------------------------------------------------------
+   Utility Fixes
+----------------------------------------------------------- */
+.cards-grid > .card { width: 100%; }
 
-/* small accessibility tweaks for keyboard focus on button */
-.learn-btn:focus { outline: 3px solid #cfe9ff; outline-offset: 2px; }
+.learn-btn:focus {
+  outline: 3px solid #cfe9ff;
+  outline-offset: 2px;
+}
 
-/* ensure no horizontal scroll at any size */
-html,body{ overflow-x:hidden; }
+html, body { overflow-x: hidden; }
