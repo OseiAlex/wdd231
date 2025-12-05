@@ -5,11 +5,13 @@
   --bg: #ffffff;
   --page-bg: #fbfbfb;
   --accent: #1e88e5;
-  --secondary: #0066aa;
   --muted: #6b6b6b;
   --card-bg: #fff;
   --gap: 1rem;
   --max-width: 1100px;
+  --font: system-ui, sans-serif;
+  --secondary: #0066aa;
+  --font: system-ui, sans-serif;
 }
 
 *{box-sizing:border-box}
@@ -29,10 +31,6 @@ body{
 }
 
 /* header/footer minimal */
-.site-header, .site-footer{
-  background: white;
-  border-bottom:1px solid #e6e6e6;
-}
 .site-header .wrap, .site-footer .wrap { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
 .site-title { margin:0; font-size:1.15rem; }
 .main-nav ul{ list-style:none; margin:0; padding:0; display:flex; gap:1rem;}
@@ -164,11 +162,3 @@ body{
 
 /* ensure no horizontal scroll at any size */
 html,body{ overflow-x:hidden; }
-
-.site-footer {
-  background: var(--secondary);
-  color: #fff;
-  padding: 0.8rem 1rem;
-  text-align: center;
-  margin-top: 1rem;
-}
