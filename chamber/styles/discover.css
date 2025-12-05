@@ -1,18 +1,13 @@
 /* styles/discover.css */
 
 /* Basic resets & variables */
-:root{
-  --bg: #ffffff;
-  --page-bg: #fbfbfb;
-  --accent: #1e88e5;
-  --muted: #6b6b6b;
-  --card-bg: #fff;
+:root {
+  --card-bg: #ffffff;
+  --hover-scale: 1.06;
+  --hover-contrast: 1.05;
   --gap: 1rem;
-  --max-width: 1100px;
-  --font: system-ui, sans-serif;
-  --secondary: #0066aa;
-  --font: system-ui, sans-serif;
 }
+
 
 *{box-sizing:border-box}
 body{
@@ -38,29 +33,39 @@ body{
 .main-nav a[aria-current="page"] { color:var(--accent); font-weight:600; }
 
 /* visit message */
-.visit-message{
-  position:relative;
+.visit-message {
+  position: relative;
   background: #fffbe6;
-  border:1px solid #ffe58f;
+  border: 1px solid #ffe58f;
   padding: 0.6rem 2.4rem 0.6rem 0.8rem;
   margin: 0.6rem 0 1rem 0;
-  border-radius:6px;
+  border-radius: 6px;
 }
-.visit-message .close-msg{
-  position:absolute;
-  right:6px;
-  top:6px;
-  background:transparent;
-  border:0;
-  font-size:1.2rem;
-  cursor:pointer;
+
+.close-msg {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  background: transparent;
+  border: 0;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 /* Cards grid container */
-.cards-grid{
-  display:grid;
+.cards-grid {
+  display: grid;
   gap: var(--gap);
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  grid-template-areas:
+    "card1"
+    "card2"
+    "card3"
+    "card4"
+    "card5"
+    "card6"
+    "card7"
+    "card8";
 }
 
 /* Card basic */
@@ -69,37 +74,59 @@ body{
   padding: 0.9rem;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-  border: 1px solid #eee;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
+  border: 1px solid #e6e6e6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.card h2{ margin:0 0 .5rem 0; font-size:1.05rem; color:var(--accent); }
-.card figure{ margin:0 0 .6rem 0; overflow:hidden; border-radius:6px; }
-.card img{ display:block; width:100%; height:auto; max-width:100%; object-fit:cover; }
+
+.card h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  color: var(--accent-dark); /* UPDATED COLOR FOR WCAG AA */
+}
+
+.card figure {
+  margin: 0 0 0.6rem 0;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
 
 /* address styling */
-.card address{
-  font-style:normal;
+.card address {
+  font-style: normal;
+  font-size: 0.9rem;
   color: #555;
-  font-size:0.9rem;
-  margin-bottom:0.45rem;
+  margin-bottom: 0.45rem;
 }
 
 /* learn button */
-.learn-btn{
-  margin-top: .6rem;
-  align-self:flex-start;
-  padding: .45rem .65rem;
+.learn-btn {
+  margin-top: 0.6rem;
+  padding: 0.45rem 0.65rem;
+  background: var(--accent-dark);
+  color: #fff;
   border: none;
-  background: var(--accent);
-  color: white;
-  border-radius:6px;
-  cursor:pointer;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 /* visually-hidden for figcaption */
-.visually-hidden{ position:absolute !important; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+.visually-hidden {
+  position: absolute !important;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
 
 /* ----------------------------------------------------------
    Named grid areas — three different layouts (small/medium/large)
@@ -121,37 +148,37 @@ body{
 }
 
 /* Medium screens: 641 - 1024px (two columns grid) */
-@media (min-width: 641px) and (max-width: 1024px){
-  .cards-grid{
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas:
-      "card1 card2"
-      "card3 card4"
-      "card5 card6"
-      "card7 card8";
-  }
+@media (min-width: 641px) and (max-width: 1024px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "card1 card2"
+            "card3 card4"
+            "card5 card6"
+            "card7 card8";
+    }
 }
 
 /* Large screens: 1025px and up — different arrangement using named areas */
-@media (min-width: 1025px){
-  .cards-grid{
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas:
-      "card1 card1 card2 card3"
-      "card4 card5 card6 card7"
-      "card8 card8 card8 card8";
-    align-items:start;
-  }
+@media (min-width: 1025px) {
+    .cards-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            "card1 card1 card2 card3"
+            "card4 card5 card6 card7"
+            "card8 card8 card8 card8";
+    }
+
 
   /* image hover effect only for large screens */
-  .card figure img{
-    transition: transform .35s ease, filter .35s ease;
-    will-change: transform;
-  }
-  .card:hover figure img{
-    transform: scale(1.06);
-    filter: contrast(1.03) saturate(1.05);
-  }
+  .card figure img {
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+  
+    .card:hover figure img {
+        transform: scale(var(--hover-scale));
+        filter: contrast(var(--hover-contrast));
+    }
 }
 
 /* ensure each card that the JS assigns has 100% width inside grid area */
