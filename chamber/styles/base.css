@@ -1,8 +1,4 @@
 /* base.css */
-:root {
-    --accent: #0D47A1;       /* WCAG AA compliant */
-    --accent-dark: #0D47A1; /* added for discover.css */
-}
 
 /* header */
 .site-header{
